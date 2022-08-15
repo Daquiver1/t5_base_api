@@ -1,17 +1,23 @@
+import os
 import pickle
 from typing import Optional
 
 from fastapi import APIRouter
-from transformers import T5ForConditionalGeneration
-
 from schemes.translate import LanguageEnum
+from transformers import T5ForConditionalGeneration
 
 translate_router = APIRouter(tags=["Translate Router"])
 
 
-model = T5ForConditionalGeneration.from_pretrained("model")
-with open("model/tokenizer.pickle", "rb") as tokens:
-    tokenizer = pickle.load(tokens)
+@translate_router.on_event("startup")
+def setup_model_tokenizer():
+    global model
+    global tokenizer
+    model = T5ForConditionalGeneration.from_pretrained("model")
+    with open("model/tokenizer.pickle", "rb") as tokens:
+        print(os.getcwd())
+        print(os.listdir(os.getcwd() + "/model"))
+        tokenizer = pickle.load(tokens)
 
 
 @translate_router.post("/translateText")

@@ -1,6 +1,6 @@
 # T5_Base_API
 
-A FastAPI that translate text from English, French, German and Romanian. It works by taking a user input and translating it to any of the 4 languages specified by the user.
+A FastAPI application that translate text from English, French, German and Romanian. It works by taking a user input and translating it to any of the 4 languages specified by the user.
 
 ## Links to Model Documentation
 
@@ -36,7 +36,7 @@ Model was trained on Google Cloud TPU Pods
 
 2GB
 
-## Installatin & Usage
+## Installation & Usage
 
 ### Local
 
@@ -67,5 +67,15 @@ uvicorn main:app --port 80
 
 ### Docker
 
-Build dockerimage
-Run dockerimage
+After cloning and changing directory
+
+#### Build dockerimage
+```
+docker build -t t5baseapi -f Dockerfile .
+```
+
+#### Run dockerimage
+```
+docker run --name t5baseapi -p 8080:8080 t5baseapi
+```
+
