@@ -2,12 +2,15 @@
 
 A FastAPI that translate text from English, French, German and Romanian. It works by taking a user input and translating it to any of the 4 languages specified by the user.
 
-### Links to Model Documentation
+## Links to Model Documentation
 
-[Hugging face](https://huggingface.co/t5-base?text=My+name+is+Wolfgang+and+I+live+in+Berlin)
+[Hugging face](https://huggingface.co/t5-base)
 
 [Github](https://github.com/google-research/text-to-text-transfer-transformer)
-``
+
+[Research Paper](https://jmlr.org/papers/volume21/20-074/20-074.pdf)
+
+[Google Blog](https://ai.googleblog.com/2020/02/exploring-transfer-learning-with-t5.html)
 
 ## Model Features
 
@@ -62,7 +65,7 @@ poetry install
 uvicorn main:app --port 80
 ```
 
-#### Docker
+### Docker
 
 Build dockerimage
 Run dockerimage
