@@ -38,7 +38,6 @@ def start() -> None:
         print("Downloading token files...")
         get_model_files()
 
-    print("Setup successful")
     app.mount("/model", StaticFiles(directory=model_directory), name="model")
     app.include_router(translate_router, prefix=api_settings.API_PREFIX)
 

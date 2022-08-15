@@ -1,4 +1,3 @@
-import os
 import pickle
 from typing import Optional
 
@@ -15,8 +14,6 @@ def setup_model_tokenizer():
     global tokenizer
     model = T5ForConditionalGeneration.from_pretrained("model")
     with open("model/tokenizer.pickle", "rb") as tokens:
-        print(os.getcwd())
-        print(os.listdir(os.getcwd() + "/model"))
         tokenizer = pickle.load(tokens)
 
 
